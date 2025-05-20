@@ -30,7 +30,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "de.mariusbackes.cordova.sumup"
+        applicationId "de.mamtoug.cordova.sumup"
         minSdkVersion 21 // SumUp SDK 5.0.2 requires API level 21+
         targetSdkVersion 31
         versionCode 1
@@ -50,7 +50,7 @@ android {
     }
 
     // Add namespace for newer Gradle plugin versions
-    namespace "de.mariusbackes.cordova.sumup"
+    namespace "de.mamtoug.cordova.sumup"
 }
 
 dependencies {

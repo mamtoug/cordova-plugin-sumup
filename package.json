@@ -5,13 +5,13 @@
   "license": "MIT",
   "module": "./www/sumup.js",
   "version": "2.0.0",
-  "homepage": "https://github.com/mariusbackes/cordova-plugin-sumup",
+  "homepage": "https://github.com/mamtoug/cordova-plugin-sumup",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mariusbackes/cordova-plugin-sumup.git"
+    "url": "https://github.com/mamtoug/cordova-plugin-sumup.git"
   },
   "bugs": {
-    "url": "https://github.com/mariusbackes/cordova-plugin-sumup.git/issues"
+    "url": "https://github.com/mamtoug/cordova-plugin-sumup.git/issues"
   },
   "cordova": {
     "id": "cordova-sumup-plugin",

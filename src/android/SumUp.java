@@ -1,4 +1,4 @@
-package de.mariusbackes.cordova.sumup;
+package de.mamtoug.cordova.sumup;
 
 import android.content.Intent;
 import android.os.Bundle;

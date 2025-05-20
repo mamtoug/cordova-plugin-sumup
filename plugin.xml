@@ -4,13 +4,13 @@
         id="cordova-sumup-plugin"
         version="2.0.0">
     <name>SumUp</name>
-    <author>mariusbackes</author>
+    <author>mamtoug</author>
     <description>
         Cordova plugin for SumUp SDK integration
     </description>
     <license>MIT</license>
-    <repo>https://github.com/mariusbackes/cordova-plugin-sumup.git</repo>
-    <issue>https://github.com/mariusbackes/cordova-plugin-sumup/issues</issue>
+    <repo>https://github.com/mamtoug/cordova-plugin-sumup.git</repo>
+    <issue>https://github.com/mamtoug/cordova-plugin-sumup/issues</issue>
     <keywords>
         sumup, creditcard, debitcard, nfc, card, terminal, pay
     </keywords>
@@ -29,13 +29,13 @@
         <preference name="SUMUP_API_KEY" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SumUp" >
-                <param name="android-package" value="de.mariusbackes.cordova.sumup.SumUp" />
+                <param name="android-package" value="de.mamtoug.cordova.sumup.SumUp" />
             </feature>
         </config-file>
         <config-file target="./res/values/strings.xml" parent="/resources">
             <string name="SUMUP_API_KEY">$SUMUP_API_KEY</string>
         </config-file>
-        <source-file src="src/android/SumUp.java" target-dir="src/de/mariusbackes/cordova/sumup" />
+        <source-file src="src/android/SumUp.java" target-dir="src/de/mamtoug/cordova/sumup" />
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.INTERNET" />
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
