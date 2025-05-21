@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'  // Changed from 'application' to 'library' for plugin use
+apply plugin: 'com.android.application'
 
 buildscript {
     repositories {
@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         // Remove applicationId as it's not needed for a library
-        minSdkVersion 26
+        minSdkVersion 26  // SumUp SDK 5.0.2 requires API level 21+
         targetSdkVersion 31
         versionCode 1
         versionName "2.0.0"
