@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'  // Change this line from 'application' to 'library'
 
 buildscript {
     repositories {
