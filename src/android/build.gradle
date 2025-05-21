@@ -1,8 +1,7 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'  // Changed from 'application' to 'library' for plugin use
 
 buildscript {
     repositories {
-        jcenter()
         google()
         mavenCentral()
     }
@@ -12,17 +11,9 @@ buildscript {
 }
 
 repositories {
-    mavenCentral()
-    jcenter()
     google()
-}
-
-allprojects {
-    repositories {
-        maven { url 'https://maven.sumup.com/releases' }
-        google()
-        mavenCentral()
-    }
+    mavenCentral()
+    maven { url 'https://maven.sumup.com/releases' }
 }
 
 android {
@@ -30,8 +21,8 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "de.mamtoug.cordova.sumup"
-        minSdkVersion 21 // SumUp SDK 5.0.2 requires API level 21+
+        // Remove applicationId as it's not needed for a library
+        minSdkVersion 26
         targetSdkVersion 31
         versionCode 1
         versionName "2.0.0"
@@ -56,8 +47,6 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.sumup:merchant-sdk:5.0.2'
-
-    // Add these if you need additional AndroidX components
     implementation 'androidx.core:core:1.7.0'
     implementation 'com.google.android.material:material:1.5.0'
 }
