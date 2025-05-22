@@ -68,7 +68,6 @@
         <!-- Add SumUp SDK dependency -->
         <framework src="com.sumup:merchant-sdk:5.0.2" />
 
-
         <!-- Add repository for SumUp SDK -->
         <config-file target="repositories.gradle" parent="repositories">
             <maven>
@@ -82,6 +81,8 @@
 
     <!-- ios -->
     <platform name="ios">
+        <preference name="SUMUP_API_KEY" />
+        
         <config-file target="config.xml" parent="/*">
             <feature name="SumUp">
                 <param name="ios-package" value="SumUp"/>
@@ -91,17 +92,22 @@
         <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
             <string>To provide a secure service, we need to know your location. Without location information, you cannot use SumUp.</string>
         </config-file>
+        
         <config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
             <string>The app needs to connect to Bluetooth peripherals to detect the SumUp Card Terminal correctly. Please confirm with OK as you cannot use your card reader otherwise.</string>
         </config-file>
+        
         <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
             <string>The app needs to access the microphone of your audio jack in order for the SumUp Card Reader to be detected correctly. Please confirm with OK as you cannot use your card reader otherwise.</string>
         </config-file>
-        <config-file target="*-Info.plist" parent="SUMUP_API_KEY">
+
+        <!-- Custom Info.plist key for SumUp API Key -->
+        <config-file target="*-Info.plist" parent="/">
+            <key>SUMUP_API_KEY</key>
             <string>$SUMUP_API_KEY</string>
         </config-file>
+        
         <source-file src="src/ios/SumUp.swift" />
-        <preference name="SUMUP_API_KEY" />
         <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
         <framework src="SumUpSDK" type="podspec" spec="~> 4.1.1" />
     </platform>
