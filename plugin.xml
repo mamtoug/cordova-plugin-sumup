@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
         id="cordova-sumup-plugin"
         version="2.0.0">
     <name>SumUp</name>
     <author>mamtoug</author>
     <description>
-        Cordova plugin for SumUp SDK integration
+        Cordova plugin for SumUp SDK integration (Android-only)
     </description>
     <license>MIT</license>
     <repo>https://github.com/mamtoug/cordova-plugin-sumup.git</repo>
@@ -23,18 +22,22 @@
         <clobbers target="window.SumUp"/>
     </js-module>
 
-    <!-- android -->
+    <!-- Android Only -->
     <platform name="android">
         <preference name="SUMUP_API_KEY" />
+
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="SumUp" >
+            <feature name="SumUp">
                 <param name="android-package" value="de.mamtoug.cordova.sumup.SumUp" />
             </feature>
         </config-file>
-        <config-file target="./res/values/strings.xml" parent="/resources">
+
+        <config-file target="res/values/strings.xml" parent="/resources">
             <string name="SUMUP_API_KEY">$SUMUP_API_KEY</string>
         </config-file>
+
         <source-file src="src/android/SumUp.java" target-dir="src/de/mamtoug/cordova/sumup" />
+
         <config-file target="AndroidManifest.xml" parent="/*">
             <!-- Network permissions -->
             <uses-permission android:name="android.permission.INTERNET" />
@@ -47,17 +50,17 @@
             <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
             <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
 
-            <!-- Location permissions (required for Bluetooth functionality) -->
+            <!-- Location permissions -->
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
             <!-- NFC permissions -->
             <uses-permission android:name="android.permission.NFC" />
 
-            <!-- Camera permissions (if you're using the SumUp Air Register) -->
+            <!-- Camera permissions -->
             <uses-permission android:name="android.permission.CAMERA" />
 
-            <!-- Optional but recommended permissions -->
+            <!-- Optional features -->
             <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
             <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />
             <uses-feature android:name="android.hardware.nfc" android:required="false" />
@@ -65,43 +68,17 @@
             <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
         </config-file>
 
-        <!-- Add SumUp SDK dependency -->
-        <framework src="com.sumup:merchant-sdk:3.8.0" />
+        <!-- SumUp SDK Dependency -->
+        <framework src="com.sumup:merchant-sdk:5.0.2" />
 
-        <!-- Add repository for SumUp SDK -->
+        <!-- Repository for SumUp SDK -->
         <config-file target="repositories.gradle" parent="repositories">
             <maven>
                 <url>https://maven.sumup.com/releases</url>
             </maven>
         </config-file>
 
-        <!-- Keep the existing gradle reference -->
+        <!-- Custom Gradle File -->
         <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
-    </platform>
-
-    <!-- ios -->
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="SumUp">
-                <param name="ios-package" value="SumUp"/>
-            </feature>
-        </config-file>
-
-        <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-            <string>To provide a secure service, we need to know your location. Without location information, you cannot use SumUp.</string>
-        </config-file>
-        <config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
-            <string>The app needs to connect to Bluetooth peripherals to detect the SumUp Card Terminal correctly. Please confirm with OK as you cannot use your card reader otherwise.</string>
-        </config-file>
-        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
-            <string>The app needs to access the microphone of your audio jack in order for the SumUp Card Reader to be detected correctly. Please confirm with OK as you cannot use your card reader otherwise.</string>
-        </config-file>
-        <config-file target="*-Info.plist" parent="SUMUP_API_KEY">
-            <string>$SUMUP_API_KEY</string>
-        </config-file>
-        <source-file src="src/ios/SumUp.swift" />
-        <preference name="SUMUP_API_KEY" />
-        <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
-        <framework src="SumUpSDK" type="podspec" spec="~> 4.1.1" />
     </platform>
 </plugin>
