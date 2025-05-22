@@ -12,11 +12,12 @@ import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult.Status;
 
-import com.sumup.merchant.api.SumUpAPI;
-import com.sumup.merchant.api.SumUpLogin;
-import com.sumup.merchant.api.SumUpPayment;
-import com.sumup.merchant.api.SumUpState;
-import com.sumup.merchant.models.TransactionInfo;
+import com.sumup.merchant.reader.api.SumUpState;
+import com.sumup.merchant.reader.api.SumUpAPI;
+import com.sumup.merchant.reader.api.SumUpLogin;
+import com.sumup.merchant.reader.api.SumUpPayment;
+import com.sumup.merchant.reader.models.TransactionInfo; 
+
 
 import java.math.BigDecimal;
 
